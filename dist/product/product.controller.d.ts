@@ -33,12 +33,7 @@ export declare class ProductController {
         _id: import("mongoose").Types.ObjectId;
     })>;
     findAll(): Promise<any>;
-    findOne(name: string): Promise<{
-        message: string;
-        product: import("mongoose").Document<unknown, {}, import("../schema/product.schema").Product> & import("../schema/product.schema").Product & {
-            _id: import("mongoose").Types.ObjectId;
-        };
-    }>;
+    findOne(_id: string): Promise<import("../schema/product.schema").Product>;
     update(_id: string, updateProductDto: UpdateProductDto): Promise<{
         statusCode: number;
         message: string;

@@ -27,8 +27,8 @@ let ProductController = class ProductController {
     findAll() {
         return this.productService.findAll();
     }
-    findOne(name) {
-        return this.productService.findOne(name);
+    findOne(_id) {
+        return this.productService.findOne(_id);
     }
     update(_id, updateProductDto) {
         return this.productService.update(_id, updateProductDto);
@@ -52,14 +52,14 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':name'),
-    __param(0, (0, common_1.Param)('name')),
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ProductController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)(':id'),
+    (0, common_1.Put)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),

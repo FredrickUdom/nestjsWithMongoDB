@@ -35,7 +35,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Product.prototype, "isAvailable", void 0);
 exports.Product = Product = __decorate([
-    (0, mongoose_1.Schema)()
+    (0, mongoose_1.Schema)({ timestamps: true })
 ], Product);
 exports.ProductSchema = mongoose_1.SchemaFactory.createForClass(Product);
 //# sourceMappingURL=product.schema.js.map

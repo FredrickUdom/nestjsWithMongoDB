@@ -41,19 +41,24 @@ let ProductService = class ProductService {
             return error;
         }
     }
-    async findOne(name) {
-        const findByName = await this.productModel.findOne({ name });
-        if (!findByName) {
-            throw new common_1.HttpException('sorry no product with such name found', 400);
-        }
-        return {
-            message: 'Here is your requested product',
-            product: findByName
-        };
-    }
-    async update(_id, updateProductDto) {
+    async findOne(_id) {
         try {
-            const updateById = await this.productModel.findByIdAndUpdate(_id, updateProductDto);
+            const findByName = await this.productModel.findById(_id);
+            if (!findByName) {
+                throw new common_1.HttpException('sorry no product with such name found', 400);
+            }
+            return findByName;
+        }
+        catch (error) {
+            throw new common_1.NotFoundException('not found');
+        }
+    }
+    async update(id, updateProductDto) {
+        try {
+            const updateById = await this.productModel.findByIdAndUpdate(id, updateProductDto, { new: true });
+            if (!updateById) {
+                throw new common_1.HttpException('E no dey ooo', 400);
+            }
             return {
                 statusCode: 201,
                 message: 'Successfully Updated',
@@ -61,7 +66,7 @@ let ProductService = class ProductService {
             };
         }
         catch (error) {
-            throw new common_1.HttpException('E no dey ooo', 400);
+            throw new common_1.HttpException('E no dey oooeeeee', 400);
         }
     }
     async remove(_id) {

@@ -33,13 +33,8 @@ export declare class ProductService {
         _id: import("mongoose").Types.ObjectId;
     })>;
     findAll(): Promise<any>;
-    findOne(name: string): Promise<{
-        message: string;
-        product: import("mongoose").Document<unknown, {}, Product> & Product & {
-            _id: import("mongoose").Types.ObjectId;
-        };
-    }>;
-    update(_id: string, updateProductDto: UpdateProductDto): Promise<{
+    findOne(_id: string): Promise<Product>;
+    update(id: string, updateProductDto: UpdateProductDto): Promise<{
         statusCode: number;
         message: string;
         product: import("mongoose").Document<unknown, {}, Product> & Product & {
