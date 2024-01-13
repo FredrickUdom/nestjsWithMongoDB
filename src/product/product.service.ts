@@ -43,7 +43,7 @@ export class ProductService {
       throw new NotFoundException('not found')
     }
    
-      // message: 'Here is your requested product',
+    
   }
 
   async update(id: string, updateProductDto: UpdateProductDto) {

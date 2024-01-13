@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ProductModule } from './product/product.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -12,7 +13,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     MongooseModule.forRoot(process.env.DB_URI),
  
 
-    ProductModule
+    ProductModule,
+ 
+
+    AuthModule
   
   ],
   controllers: [],
